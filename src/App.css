@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #4a69bd;
+    --light-blue: #7b96d9;
+    --accent-green: #28a745;
+    --accent-red: #dc3545;
+    --text-dark: #333;
+    --text-medium: #666;
+    --bg-light: #f8f9fa;
+    --bg-gradient-start: #e0f2f7;
+    --bg-gradient-end: #c2e0f0;
+    --card-bg: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.App {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.App-header {
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+    color: white;
+    padding: 20px 40px;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.App-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.App-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.15em;
+    padding: 12px 20px;
+    border-radius: 30px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.App-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 0;
+}
+
+.App-nav a:hover::before {
+    left: 0;
+}
+
+.App-nav a:hover,
+.App-nav a.active {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    color: #fff;
+}
+
+.App-nav a.active {
+    background-color: rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+}
+
+.App-nav .nav-icon {
+    font-size: 1.3em;
+    transition: transform 0.3s ease;
+}
+
+.App-nav a:hover .nav-icon {
+    transform: scale(1.1);
+}
+
+.App-main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.App-footer {
+    background-color: var(--primary-blue);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: auto;
+    box-shadow: 0 -4px 15px var(--shadow-medium);
+    font-size: 0.95em;
+}
+
+.home-page {
+    background-color: var(--card-bg);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeInScale 1s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-page::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--light-blue) 0%, transparent 70%);
+    opacity: 0.1;
+    animation: rotateBackground 20s linear infinite;
+}
+
+.home-page::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--accent-green) 0%, transparent 70%);
+    opacity: 0.08;
+    animation: rotateBackgroundReverse 25s linear infinite;
+}
+
+.home-page h2 {
+    color: var(--primary-blue);
+    font-size: 3em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.home-page p {
+    font-size: 1.15em;
+    color: var(--text-medium);
+    margin-bottom: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateBackground {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateBackgroundReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@media (max-width: 900px) {
+    .App-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .app-title {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    .App-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .App-nav a {
+        padding: 10px 15px;
+        font-size: 1em;
+        justify-content: center;
+    }
+
+    .App-main {
+        padding: 20px;
+    }
+
+    .home-page {
+        padding: 30px;
+    }
+
+    .home-page h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .App-header {
+        padding: 15px;
+    }
+    .app-title {
+        font-size: 1.8em;
+    }
+    .App-nav ul {
+        gap: 10px;
+    }
+    .home-page {
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .home-page h2 {
+        font-size: 1.8em;
+    }
+    .home-page p {
+        font-size: 1em;
+    }
+}
