@@ -18,7 +18,7 @@ function FeedbackStats({ refresh }) {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch("http://localhost:5000/api/feedback/faculty-stats");
+            const response = await fetch("https://backend-sf-form.vercel.app/api/feedback/faculty-stats");
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
