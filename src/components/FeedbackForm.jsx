@@ -52,7 +52,7 @@ function FeedbackForm({ onFeedbackSubmitted }) {
 
         try {
             // *** CRUCIAL FIX HERE: Construct the full API URL ***
-            const apiUrl = `${import.meta.env.VITE_API_URL}/api/feedback`; 
+            const apiUrl = "https://backend-sf-form.vercel.app/api/feedback";
 
             const response = await fetch(apiUrl, {
                 method: 'POST',
